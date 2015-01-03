@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB292D291A57B58C00E150A5 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB292D281A57B58C00E150A5 /* Square.swift */; };
 		EB292D2B1A57B59D00E150A5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB292D2A1A57B59D00E150A5 /* Board.swift */; };
+		EB292D2E1A57BE4800E150A5 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB292D2D1A57BE4800E150A5 /* SquareButton.swift */; };
 		EB371C391A5776F700D7198B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371C381A5776F700D7198B /* AppDelegate.swift */; };
 		EB371C3B1A5776F700D7198B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB371C3A1A5776F700D7198B /* ViewController.swift */; };
 		EB371C3E1A5776F700D7198B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB371C3C1A5776F700D7198B /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		EB292D281A57B58C00E150A5 /* Square.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		EB292D2A1A57B59D00E150A5 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		EB292D2D1A57BE4800E150A5 /* SquareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
 		EB371C331A5776F600D7198B /* Mineswifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mineswifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB371C371A5776F600D7198B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB371C381A5776F700D7198B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		EB292D2C1A57BE1600E150A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB292D2D1A57BE4800E150A5 /* SquareButton.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		EB371C2A1A5776F600D7198B = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +100,11 @@
 		EB371C351A5776F600D7198B /* Mineswifter */ = {
 			isa = PBXGroup;
 			children = (
+				EB292D2C1A57BE1600E150A5 /* Views */,
 				EB292D271A57B56C00E150A5 /* Models */,
 				EB371C381A5776F700D7198B /* AppDelegate.swift */,
 				EB371C3A1A5776F700D7198B /* ViewController.swift */,
 				EB371C3C1A5776F700D7198B /* Main.storyboard */,
-				EB371C3F1A5776F700D7198B /* Images.xcassets */,
-				EB371C411A5776F700D7198B /* LaunchScreen.xib */,
 				EB371C361A5776F600D7198B /* Supporting Files */,
 			);
 			path = Mineswifter;
@@ -104,6 +113,8 @@
 		EB371C361A5776F600D7198B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB371C3F1A5776F700D7198B /* Images.xcassets */,
+				EB371C411A5776F700D7198B /* LaunchScreen.xib */,
 				EB371C371A5776F600D7198B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -226,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB292D2E1A57BE4800E150A5 /* SquareButton.swift in Sources */,
 				EB292D291A57B58C00E150A5 /* Square.swift in Sources */,
 				EB371C3B1A5776F700D7198B /* ViewController.swift in Sources */,
 				EB292D2B1A57B59D00E150A5 /* Board.swift in Sources */,
