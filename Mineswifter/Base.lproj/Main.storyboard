@@ -35,7 +35,11 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="New Game" id="etZ-2R-g9q"/>
+                                    <barButtonItem title="New Game" id="etZ-2R-g9q">
+                                        <connections>
+                                            <action selector="newGamePressed" destination="BYZ-38-t0r" id="8Ym-F5-rY8"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moves: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rE4-1r-gPr">
@@ -48,6 +52,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="boardView" destination="dGy-2d-HaN" id="Itx-4f-1gB"/>
+                        <outlet property="movesLabel" destination="rE4-1r-gPr" id="OfS-wG-48l"/>
+                        <outlet property="timeLabel" destination="UOZ-pF-c6g" id="7sF-4j-3BC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

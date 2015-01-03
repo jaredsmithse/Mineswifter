@@ -9,7 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBAction func newGamePressed() {
+        println("new game");
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
