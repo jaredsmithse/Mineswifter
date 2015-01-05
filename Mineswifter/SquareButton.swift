@@ -23,6 +23,22 @@ class SquareButton : UIButton {
         super.init(frame: squareFrame)
     }
     
+    func getLabelText() -> String {
+        // check the isMineLocation and numNeighboringMines properties to determine the 
+        // string to be returned
+        if !self.square.isMineLocation {
+            if self.square.numNeighboringMines == 0 {
+                //no mine and no neighboring mines
+                return ""
+            } else {
+                //no mine, but there are neighboring ones
+                return "\(self.square.numNeighboringMines)"
+            }
+        }
+        //its a mine
+        return "M"
+    }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

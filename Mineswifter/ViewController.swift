@@ -13,13 +13,29 @@ class ViewController: UIViewController {
     let BOARD_SIZE:Int = 10
     var board:Board
     var squareButtons:[SquareButton] = []
+    var oneSecondTimer:NSTimer?
     
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func newGamePressed() {
-        println("new game");
+        self.endCurrentGame()
+        self.startNewGame()
+    }
+    
+    var moves:Int = 0 {
+        didSet {
+            self.movesLabel.text = "Moves: \(moves)"
+            self.movesLabel.sizeToFit()
+        }
+    }
+    
+    var timeTaken:Int = 0 {
+        didSet {
+            self.timeLabel.text = "Time: \(timeTaken)"
+            self.timeLabel.sizeToFit()
+        }
     }
     
     func initializeBoard() {
@@ -38,14 +54,49 @@ class ViewController: UIViewController {
         }
     }
     
+    func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        //start new game when the alert is dismissed
+        self.startNewGame()
+    }
+    
     func squareButtonPressed(sender: SquareButton) {
-        println("Pressed row:\(sender.square.row), col:\(sender.square.col)")
-        sender.setTitle("", forState: .Normal)
+        if(!sender.square.isRevealed) {
+            sender.square.isRevealed = true
+            sender.setTitle("\(sender.getLabelText())", forState: .Normal)
+            self.moves++
+        }
+        if sender.square.isMineLocation {
+            self.minePressed()
+        }
+    }
+    
+    func minePressed() {
+        self.endCurrentGame()
+        
+        // show an alert when you tap on a mine
+        var alertView = UIAlertView()
+        alertView.addButtonWithTitle("New Game")
+        alertView.title = "BOOM!"
+        alertView.message = "You tapped on a mine."
+        alertView.show()
+        alertView.delegate = self
+    }
+    
+    func endCurrentGame() {
+        self.oneSecondTimer!.invalidate()
+        self.oneSecondTimer = nil
     }
     
     func startNewGame() {
         //start new game
         self.resetBoard()
+        self.timeTaken = 0
+        self.moves = 0
+        self.oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("oneSecond"), userInfo: nil, repeats: true)
+    }
+    
+    func oneSecond() {
+        self.timeTaken++
     }
     
     func resetBoard() {
