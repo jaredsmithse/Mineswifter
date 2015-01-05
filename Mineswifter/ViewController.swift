@@ -63,11 +63,37 @@ class ViewController: UIViewController {
         if(!sender.square.isRevealed) {
             sender.square.isRevealed = true
             sender.setTitle("\(sender.getLabelText())", forState: .Normal)
+            if sender.isEmpty() {
+                flipEmptySquaresNextTo(sender)
+            }
             self.moves++
         }
         if sender.square.isMineLocation {
             self.minePressed()
         }
+    }
+    
+    func flipEmptySquaresNextTo(button:SquareButton) {
+        let adjacentOffsets =
+        [(-1,-1), (0,-1), (1,-1),
+            (-1,0), (1,0),
+            (-1,1), (0,1), (1,1)]
+        
+        for (rowOffset, colOffset) in adjacentOffsets {
+            //getTileAtLocation might return a Square, or it could return nil, so we want
+            // to use the optional datatype
+            let row = button.square.row + rowOffset
+            let col = button.square.col + colOffset
+            
+            if row >= 0 && row < board.size && col >= 0 && col < board.size {
+                let neighbor = self.boardView.subviews[row*BOARD_SIZE + col] as SquareButton
+                if neighbor.getLabelText() == "" {
+                    squareButtonPressed(neighbor)
+                }
+            }
+            
+        }
+
     }
     
     func minePressed() {

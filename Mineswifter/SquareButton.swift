@@ -27,7 +27,7 @@ class SquareButton : UIButton {
         // check the isMineLocation and numNeighboringMines properties to determine the 
         // string to be returned
         if !self.square.isMineLocation {
-            if self.square.numNeighboringMines == 0 {
+            if isEmpty() {
                 //no mine and no neighboring mines
                 return ""
             } else {
@@ -37,6 +37,10 @@ class SquareButton : UIButton {
         }
         //its a mine
         return "M"
+    }
+    
+    func isEmpty() -> Bool {
+        return self.square.numNeighboringMines == 0
     }
     
     required init(coder aDecoder: NSCoder) {
